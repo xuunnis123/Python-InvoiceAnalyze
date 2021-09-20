@@ -271,7 +271,7 @@ def collect_and_devide(shot,start,end):
 ###畫折線圖
 def show():
     global locate1000,locate200
-    font = FontProperties(fname=os.environ['WINDIR']+'\\Fonts\\simsun.ttc',size=10)
+    font = FontProperties(fname='./STHeiti Medium.ttc',size=10)
 #整理ndarray
     for _ in locate1000:
     #print(locate1000['臺北市'])
@@ -314,13 +314,13 @@ def show():
     plt.rcParams['axes.facecolor'] = '#FFFFBB'
     plt.plot(np.arange(data1000.shape[0]),data1000,label=label)
     plt.plot(np.arange(data200.shape[0]),data200,label=label2)
-    plt.xticks(np.arange(data1000.shape[0]),['基隆市','臺北市','新北市','桃園市','新竹市','新竹縣','苗栗縣','臺中市','彰化縣','雲林縣','南投縣','嘉義縣','嘉義市','臺南市','高雄市','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣'],fontproperties=font)    
-    plt.yticks(np.arange(maxdata+1),timenumber,fontproperties=font)    
+    plt.xticks(np.arange(data1000.shape[0]),['基隆市','臺北市','新北市','桃園市','新竹市','新竹縣','苗栗縣','臺中市','彰化縣','雲林縣','南投縣','嘉義縣','嘉義市','臺南市','高雄市','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣'],fontproperties=font)    #,fontproperties=font
+    plt.yticks(np.arange(maxdata+1),timenumber,fontproperties=font)    #fontproperties=font
     #['0','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20']
-    plt.legend(loc='upper right',prop=font)
-    plt.title('各縣市中獎次數',fontproperties=font)
-    plt.xlabel('縣市',fontproperties=font)
-    plt.ylabel('次數',fontproperties=font)
+    plt.legend(loc='upper right',prop=font) #prop=font
+    plt.title('各縣市中獎次數',fontproperties=font) #fontproperties=font
+    plt.xlabel('縣市',fontproperties=font)#fontproperties=font
+    plt.ylabel('次數',fontproperties=font)#fontproperties=font
     plt.savefig("final.png")
     plt.show()
     
