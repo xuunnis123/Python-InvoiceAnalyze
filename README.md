@@ -18,3 +18,8 @@ for macOS: `source ./invoiceEnv/bin/activate`
 
 for Windows: `invoiceEnv\scripts\activate`
 
+虛擬環境開啟後
+
+
+執行 `python invoiceAnalyze.py`
+
