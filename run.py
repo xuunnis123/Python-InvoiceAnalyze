@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 """
+Update on Sat Sep 25 15:37:00 2021
 Created on Fri Dec 28 21:16:30 2018
+
 統計102/01~107/09統一發票特別獎1000萬與特獎200萬中獎(分開計算)在每個縣市出現次數。V
 0.禁止先下載整理好的統一發票特別獎與特獎資料V
 1.要使用thread，分別抓取不同時間網頁V
 2.要使用matplotlib模組顯示相關資訊V
-3.能夠指定任意102/01~107/09統計時間區間V
+3.能夠指定任意104/01~109/09統計時間區間V
 /店招、地址、類別、金額/
 //多少區間中獎機會高//
 1.使用tkinter模組(或其他GUI模組)設計GUI，讓使用者可以輕易操作你的程式V
@@ -193,17 +195,17 @@ if __name__ == '__main__':
     first.place(x=40, y= 80)    
         #Label(root,text="開始區間:{}".format(shot1)).pack(row=7,columnspan=8)
         #Label(root,text="結束區間:{}".format(shot2)).pack(row=8,columnspan=8)
-    button102=Button(text="102",command=lambda:fun_shot1("102"),bg='#FF0088')
+    button102=Button(text="102",command=lambda:fun_shot1("104"),bg='#FF0088')
     button102.place(x=40, y= 100)
-    button103=Button(text="103",command=lambda:fun_shot1("103"),bg='#FF3333')
+    button103=Button(text="103",command=lambda:fun_shot1("105"),bg='#FF3333')
     button103.place(x=70, y= 100)
-    button104=Button(text="104",command=lambda:fun_shot1("104"),bg='#FF0088')
+    button104=Button(text="104",command=lambda:fun_shot1("106"),bg='#FF0088')
     button104.place(x=100, y= 100)
-    button105=Button(text="105",command=lambda:fun_shot1("105"),bg='#FF3333')
+    button105=Button(text="105",command=lambda:fun_shot1("107"),bg='#FF3333')
     button105.place(x=130, y= 100)
-    button106=Button(text="106",command=lambda:fun_shot1("106"),bg='#FF0088')
+    button106=Button(text="106",command=lambda:fun_shot1("108"),bg='#FF0088')
     button106.place(x=160, y= 100)
-    button107=Button(text="107",command=lambda:fun_shot1("107"),bg='#FF3333')
+    button107=Button(text="107",command=lambda:fun_shot1("109"),bg='#FF3333')
     button107.place(x=190, y= 100)
     
     button01=Button(text="01",command=lambda:fun_shot1("01"),width=7,bg='#FFA488')
@@ -222,17 +224,17 @@ if __name__ == '__main__':
     second=Label(text="選出結束的區間:",bg="#FFFFBB")
     second.place(x=260, y= 80)
     
-    button102=Button(text="102",command=lambda:fun_shot2("102"),bg='#CCCCFF')
+    button102=Button(text="102",command=lambda:fun_shot2("104"),bg='#CCCCFF')
     button102.place(x=260, y= 100)
-    button103=Button(text="103",command=lambda:fun_shot2("103"),bg='#5555FF')
+    button103=Button(text="103",command=lambda:fun_shot2("105"),bg='#5555FF')
     button103.place(x=290, y= 100)
-    button104=Button(text="104",command=lambda:fun_shot2("104"),bg='#CCCCFF')
+    button104=Button(text="104",command=lambda:fun_shot2("106"),bg='#CCCCFF')
     button104.place(x=320, y= 100)
-    button105=Button(text="105",command=lambda:fun_shot2("105"),bg='#5555FF')
+    button105=Button(text="105",command=lambda:fun_shot2("107"),bg='#5555FF')
     button105.place(x=350, y= 100)
-    button106=Button(text="106",command=lambda:fun_shot2("106"),bg='#CCCCFF')
+    button106=Button(text="106",command=lambda:fun_shot2("108"),bg='#CCCCFF')
     button106.place(x=380, y= 100)
-    button107=Button(text="107",command=lambda:fun_shot2("107"),bg='#5555FF')
+    button107=Button(text="107",command=lambda:fun_shot2("109"),bg='#5555FF')
     button107.place(x=410, y= 100)
     
     button01=Button(text="01",command=lambda:fun_shot2("01"),width=7,bg='#CCBBFF')
@@ -258,7 +260,7 @@ if __name__ == '__main__':
     menu=Menu(root)    
     filemenu=Menu(menu)
     menu.add_cascade(label="操作模式",menu=filemenu)
-    # filemenu.add_command(label="區間模式")
+   
     filemenu.add_command(label="Exit",command=root.quit)
     
     root.config(menu=menu)
