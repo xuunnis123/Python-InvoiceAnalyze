@@ -29,7 +29,7 @@ class Locations:
         location_list = self.getPlaceList()
         assert location in location_list, "沒有此地區"
         self.__count[location] += 1
-
+    
     def getCount(self, location):
         return self.__count[location]
 
@@ -69,25 +69,28 @@ class AnalyzeItem:
     def update(self, time):
         prize = self.__prize
         # time example: 10705
-        url='https://www.etax.nat.gov.tw/etw-main/web/ETW183W3_'+ time +'/'
+        url='https://www.etax.nat.gov.tw/etw-main/ETW183W3_'+ time +'/'
+        
         html = requests.get(url).content.decode('utf-8')
+        
         sp = BeautifulSoup(html,'html.parser')
-
-        # h_id: headers id
+       
         if int(prize) == 1000:
-            table = sp.find('table',{'id':"fbonly"})
-            h_id = ''
+            table = sp.find('table',{'id':"tenMillionsTable"})
+            #h_id = ''
         elif int(prize) == 200:
-            table = sp.find('table',{'id':"fbonly_200"})
-            h_id = '2'
+            table = sp.find('table',{'id':"twoMillionsTable"})
+            #h_id = '2'
         else:
             assert True, "目前只提供200萬、1000萬的獎項分析功能"
-
+        
         save = table.find_all('tr')
-        save_company = table.findAll('td',{'headers':'companyname'+h_id})
-        save_address = table.findAll('td',{'headers':'companyAddress'+h_id})
-        save_item = table.findAll('td',{'headers':'tranItem'+h_id})
-
+        
+        save_company = table.find_all('td',{'data-th':"開立發票營業人"})
+        
+        save_address = table.find_all('td',{'data-th':"營業地址"})
+        save_item = table.find_all('td',{'data-th':"交易項目"})
+        
         # 更新到 analyzerItem 
         for row in save_company:
             self.__company.append(row.get_text())
@@ -134,4 +137,4 @@ class AnalyzeItem:
                     break
                 # 正常
                 if addr.find(i) !=-1:
-                    locate.addCount(str(i))  
+                    locate.addCount(str(i)) 
